@@ -1,0 +1,12 @@
+{
+  "name": "genpark-phonetic-homophone-stt-disambiguator-skill",
+  "version": "1.0.0",
+  "description": "Phonetic Soundex and acoustic confusion matrix resolver correcting domain-specific STT transcription errors.",
+  "category": "Voice AI & Real-Time Audio Streaming",
+  "runtime": "python3",
+  "entrypoint": "client.py",
+  "author": "GenPark AI",
+  "repository": "https://github.com/alphaparkinc/genpark-phonetic-homophone-stt-disambiguator-skill",
+  "verified": true,
+  "stars": 8
+}
