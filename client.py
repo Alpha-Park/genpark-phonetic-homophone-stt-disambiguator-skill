@@ -1,5 +1,5 @@
 import re
-from typing import Dict, Any, List, Tuple
+from typing import Dict, Any, List, Tuple, Optional
 
 class PhoneticHomophoneSTTDisambiguator:
     """
@@ -59,14 +59,12 @@ class PhoneticHomophoneSTTDisambiguator:
         corrected = raw_transcript
         modifications: List[Dict[str, str]] = []
 
-        # 1. Exact alias replacement
         for alias, target in self.phonetic_aliases.items():
             pattern = re.compile(rf"\b{re.escape(alias)}\b", re.IGNORECASE)
             if pattern.search(corrected):
                 corrected = pattern.sub(target, corrected)
                 modifications.append({"original": alias, "corrected": target, "method": "alias_lookup"})
 
-        # 2. Token-level Soundex matching for rare misspellings
         tokens = corrected.split()
         lexicon_soundex = {self.soundex(term): term for term in self.domain_lexicon}
 
